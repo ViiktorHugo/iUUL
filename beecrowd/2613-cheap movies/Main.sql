@@ -1,0 +1,1 @@
+SELECT Movie.id, name FROM movies Movie, prices Price WHERE Movie.id_prices=Price.id AND Price.value < 2
