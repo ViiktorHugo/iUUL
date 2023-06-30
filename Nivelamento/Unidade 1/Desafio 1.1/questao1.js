@@ -53,23 +53,34 @@ class ControllerVertices {
     }
 }
 
-// testes
-let controller = new ControllerVertices();
+class testes {
+    constructor() {
+        let controller = new ControllerVertices();
 
-let vertice1 = new Vertice(2,2);
-let vertice2 = new Vertice(-2,-5);
-let vertice3 = new Vertice(2,2);
+        let vertice1 = new Vertice(2,2);
+        let vertice2 = new Vertice(-2,-5);
+        let vertice3 = new Vertice(2,2);
 
 
-console.log(controller.equals(vertice1, vertice2));
-console.log(controller.equals(vertice1, vertice3));
-console.log(controller.distancia(vertice1, vertice2));
-console.log(controller.distancia(vertice1, vertice3));
+        console.log(controller.equals(vertice1, vertice2));
+        console.log(controller.equals(vertice1, vertice3));
+        console.log(controller.distancia(vertice1, vertice2));
+        console.log(controller.distancia(vertice1, vertice3));
 
-vertice1.move(0,0);
-vertice2.move(1,0);
-vertice3.move(3,0);
+        vertice1.move(0,0);
+        vertice2.move(1,0);
+        vertice3.move(3,0);
 
-console.log(vertice1);
-console.log(vertice2);
-console.log(vertice3);
+        console.log(vertice1);
+        console.log(vertice2);
+        console.log(vertice3);
+    }
+}
+
+// remova o comentario abaixo, para rodar os testes
+//let teste = new testes();
+
+module.exports = {
+    Vertice: Vertice,
+    ControllerVertices: ControllerVertices
+  };
