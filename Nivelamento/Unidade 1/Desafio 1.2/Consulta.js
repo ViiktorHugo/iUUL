@@ -17,6 +17,10 @@ class Consulta {
         this.#fim = fim;
     }
 
+    get cpfConsulta() {
+        return this.#cpf;
+    }
+
     get dataConsulta() {
         return this.#data;
     }
