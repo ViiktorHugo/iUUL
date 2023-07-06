@@ -27,6 +27,10 @@ class Paciente {
         return this.#nascimento;
     }
 
+    get idadePaciente() {
+        return this.#idade;
+    }
+
     /**
      * 
      * @param {*} CPF de outro paciente a ser comparado 

@@ -1,9 +1,12 @@
+const {DateTime} = require("luxon") //dar npm install no luxon, ver pagina da web
+
 
 class Consulta {
     #cpf;
     #data;
     #inicio;
     #fim;
+    #duracao;
 
     /**
      * 
@@ -15,6 +18,7 @@ class Consulta {
         this.#data = data;
         this.#inicio = inicio;
         this.#fim = fim;
+        this.#duracao = this.#fim - this.#inicio;
     }
 
     get cpfConsulta() {
@@ -32,4 +36,15 @@ class Consulta {
     get fimConsulta() {
         return this.#fim;
     }
+
+    get duracaoConsulta() {
+        return this.#duracao;
+    }
+}
+
+let a = DateTime.DATE_SHORT
+console.log(a);
+
+module.exports = {
+    Consulta: Consulta
 }
