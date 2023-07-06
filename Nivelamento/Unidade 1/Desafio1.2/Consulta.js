@@ -1,5 +1,3 @@
-const {DateTime} = require("luxon") //dar npm install no luxon, ver pagina da web
-
 
 class Consulta {
     #cpf;
