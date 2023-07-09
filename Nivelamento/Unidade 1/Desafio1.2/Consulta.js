@@ -1,6 +1,6 @@
 
 class Consulta {
-    #cpf;
+    #cpf; // verificar se isso deve ser substituido por paciente. faz mais sentido???
     #data;
     #inicio;
     #fim;
@@ -39,9 +39,6 @@ class Consulta {
         return this.#duracao;
     }
 }
-
-let a = DateTime.DATE_SHORT
-console.log(a);
 
 module.exports = {
     Consulta: Consulta
