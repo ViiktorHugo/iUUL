@@ -4,6 +4,7 @@ class Paciente {
     #nome;
     #nascimento;
     #idade;
+    #consultas; // verificar coesao e dependencias com o objeto consulta.js
 
     /**
      * @params cpf, nome e data de nascimento
@@ -12,7 +13,8 @@ class Paciente {
         this.#cpf = cpf;
         this.#nome = nome;
         this.#nascimento = nascimento;
-        this.#idade = 0// TODO - data de nascimento - data atual 
+        this.#idade = 0; // TODO: data de nascimento - data atual
+        this.#consultas = [];
     }
 
     get cpfPaciente() {
@@ -32,9 +34,10 @@ class Paciente {
     }
 
     /**
-     * 
-     * @param {*} CPF de outro paciente a ser comparado 
-     * @returns true caso seja igual, false caso seja diferente
+     * Funcao que verifica se o CPF ja eh existente
+     * @param outro CPF
+     * @returns true -> caso exista, false -> nao exista
+     * TODO: Verificar se o paciente eh responsavel por realizar essa verificacao
      */
     verificaCPF (otherCPF) {
         return this.#cpf === otherCPF;
