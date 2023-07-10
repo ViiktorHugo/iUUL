@@ -1,5 +1,3 @@
 
-const { Paciente } = require('./ Paciente');
-
-
-let p1 = new Paciente();
+const Consulta = require('./Consulta');
+const Paciente = require('./paciente');
