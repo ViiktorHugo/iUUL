@@ -7,7 +7,9 @@ class Paciente {
     #consultas; // verificar coesao e dependencias com o objeto consulta.js
 
     /**
-     * @params cpf, nome e data de nascimento
+     * Constructor para o objeto paciente.
+     * 
+     * @params CPF, nome e data de nascimento
      */
     constructor (cpf, nome, nascimento) {
         this.#cpf = cpf;
@@ -34,13 +36,33 @@ class Paciente {
     }
 
     /**
-     * Funcao que verifica se o CPF ja eh existente
-     * @param outro CPF
-     * @returns true -> caso exista, false -> nao exista
+     * Verifica se o CPF ja eh existente.
+     * 
+     * @params CPF de outro paciente a ser comparado
+     * @returns true -> caso exista igual, false -> nao exista
      * TODO: Verificar se o paciente eh responsavel por realizar essa verificacao
      */
     verificaCPF (otherCPF) {
         return this.#cpf === otherCPF;
+    }
+
+    /**
+     * Adiciona o objeto consulta a lista de consultas do paciente.
+     * 
+     * @params Objeto consulta a ser adicionado
+     */
+    addConsulta(Consulta) {
+        this.#consultas.push(Consulta);
+    }
+
+    /**
+     * Remove uma consulta agendada da lista de consultas do paciente.
+     * 
+     * @params Objeto consulta a ser removido
+     */
+    rmvConsulta(Consulta) {
+        let temp = this.#consultas.find(Consulta);
+        this.#consultas.pop(temp);
     }
 }
 
