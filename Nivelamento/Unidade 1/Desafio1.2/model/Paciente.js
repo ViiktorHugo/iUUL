@@ -6,7 +6,6 @@ class Paciente {
     #nome;
     #nascimento;
     #idade;
-    #consultas; // verificar coesao e dependencias com o objeto consulta.js
 
     /**
      * Cria um novo paciente.
@@ -18,7 +17,6 @@ class Paciente {
         this.#nome = nome;
         this.#nascimento = nascimento;
         this.#idade = this.#calculaIdade(nascimento);
-        this.#consultas = [];
     }
 
     get cpfPaciente() {
@@ -46,25 +44,6 @@ class Paciente {
      */
     verificaCPF (otherCPF) {
         return this.#cpf === otherCPF;
-    }
-
-    /**
-     * Adiciona o objeto consulta a lista de consultas do paciente.
-     * 
-     * @params Objeto consulta a ser adicionado
-     */
-    addConsulta(Consulta) {
-        this.#consultas.push(Consulta);
-    }
-
-    /**
-     * Remove uma consulta agendada da lista de consultas do paciente.
-     * 
-     * @params Objeto consulta a ser removido
-     */
-    rmvConsulta(Consulta) {
-        let temp = this.#consultas.find(Consulta);
-        this.#consultas.pop(temp);
     }
 
     /**

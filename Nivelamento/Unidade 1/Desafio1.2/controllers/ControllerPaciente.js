@@ -33,11 +33,11 @@ class ControllerPaciente {
     }
 
     listaPacientesCPF() { //TODO: not implemented yet!
-
+        console.log("Not implemented yet!");
     }
 
     listaPacientesNome () { //TODO: not implemented yet!
-
+        console.log("Not implemented yet!");
     }
 }
 

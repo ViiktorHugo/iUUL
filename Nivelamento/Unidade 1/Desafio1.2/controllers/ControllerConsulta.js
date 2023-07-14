@@ -29,7 +29,7 @@ class ControllerConsulta {
 
     listarConsultas(){ // not done yet
         for (let i = 0; i < this.#Consultas.length; i ++) {
-            console.log(this.#Consultas[i].cpfConsulta());
+            console.log(this.#Consultas[i].cpfConsulta()); //nao consegue acessar o metodo cpf consulta, por que?
         }
     }
 }
