@@ -7,8 +7,9 @@ class Consulta {
     #duracao;
 
     /**
+     * Cria uma nova consulta.
      * 
-     * @params cpf, data da consulta, horario incial, horario final.
+     * @params cpf, data da consulta, horario incial, horario final
      * 
      */
     constructor (cpf, data, inicio, fim) {

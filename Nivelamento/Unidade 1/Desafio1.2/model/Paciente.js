@@ -1,4 +1,6 @@
 
+const { DateTime } = require('luxon');
+
 class Paciente {
     #cpf;
     #nome;
@@ -7,7 +9,7 @@ class Paciente {
     #consultas; // verificar coesao e dependencias com o objeto consulta.js
 
     /**
-     * Constructor para o objeto paciente.
+     * Cria um novo paciente.
      * 
      * @params CPF, nome e data de nascimento
      */
@@ -15,7 +17,7 @@ class Paciente {
         this.#cpf = cpf;
         this.#nome = nome;
         this.#nascimento = nascimento;
-        this.#idade = 0; // TODO: data de nascimento - data atual
+        this.#idade = this.#calculaIdade(nascimento);
         this.#consultas = [];
     }
 
@@ -63,6 +65,20 @@ class Paciente {
     rmvConsulta(Consulta) {
         let temp = this.#consultas.find(Consulta);
         this.#consultas.pop(temp);
+    }
+
+    /**
+     * Metodo privado para calcular a idade no constructor
+     * 
+     * @params data de nascimento
+     * @returns idade do paciente
+     */
+    #calculaIdade(nascimento) {
+        let dataAtual = DateTime.now();
+
+        let idade = dataAtual.diff(nascimento, 'years').years;
+
+        return (idade);
     }
 }
 

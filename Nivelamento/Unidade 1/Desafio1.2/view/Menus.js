@@ -1,5 +1,6 @@
-const { Consulta } = require("../model/Consulta");
-const { Paciente } = require("../model/Paciente");
+const { ControllerConsulta } = require('../controllers/ControllerConsulta');
+const { ControllerPaciente } = require('../controllers/controllerPaciente');
+
 const entry = require('prompt-sync')({ sigint: true });
 
 // iniciar menus de texto
@@ -28,5 +29,3 @@ function menuAgenda(){
     console.log("4 - Voltar p/ menu principal")
 }
 
-let nome = entry("Digite algo:")
-console.log(nome);
