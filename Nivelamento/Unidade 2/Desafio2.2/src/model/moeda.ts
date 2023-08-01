@@ -6,22 +6,22 @@
  */
 class Moeda{
     #tipo: string;
-    #valor: number;
+    #valor ?: number;
 
-    constructor(tipo: string, valor: number) {
+    constructor(tipo: string, valor ?: number) {
         this.#tipo = tipo;
         this.#valor = valor;
     }
 
-    get tipo() {
+    get tipo() : string {
         return this.#tipo;
     }
 
-    get valor() {
+    get valor() : number | undefined {
         return this.#valor;
     }
 
-    set valor(novoValor: number) {
+    set valor(novoValor: number){
         this.#valor = novoValor;
     }
 }
