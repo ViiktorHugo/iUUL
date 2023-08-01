@@ -1,2 +1,4 @@
 
-console.log("tsconfig testing");
+class Conversor {
+    
+}
