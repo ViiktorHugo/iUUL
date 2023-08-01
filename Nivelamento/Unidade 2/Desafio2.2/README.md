@@ -10,5 +10,5 @@ At the directory ./desafio2.2, run node conversor.js
 ```
 
 ## Aditional info:
-In src, is all the TypeScript written code.
-In dist, is all the converted javascript code.
+In src, is all the TypeScript written code.  
+In dist, is all the converted javascript code.  
