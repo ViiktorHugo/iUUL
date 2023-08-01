@@ -2,11 +2,13 @@
 ## Author: @viiktorhugo
 ## Contact: victor.rangel@ccc.ufcg.edu.br
 
-## Code for the desafio2.2, iUUL course.
 
 ```bash
 How to run:
-At the directory ./desafio2.2, run node conversor.js
+At the directory ./desafio2.2, run:
+```
+```bash
+node .\conversor.js
 ```
 
 ## Aditional info:
