@@ -1,10 +1,8 @@
 
 // TODO => Estudar o uso de interfaces em TypeScript
 
-import { ControllerMoeda } from "../controllers/controller-moeda"
+import { ControllerMoeda } from "../control/controller-moeda"
 
 interface InterfaceControllerMoeda {
-    createMoeda() {
-        moeda: Object = new ControllerMoeda();
-    }
+    
 }
