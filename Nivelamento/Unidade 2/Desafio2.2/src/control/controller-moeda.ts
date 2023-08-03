@@ -9,7 +9,7 @@ class ControllerMoeda {
     
     constructor(){}
 
-    createMoeda(tipo: string, valor?: number) {
+    createMoeda(tipo: string, valor?: number) : Moeda {
         return new Moeda(tipo, valor);
     }
 }
