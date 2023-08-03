@@ -7,7 +7,6 @@ const moeda_1 = require("../model/moeda");
  * @description Controlador responsavel por criar uma nova instancia de moeda
  */
 class ControllerMoeda {
-    constructor() { }
     createMoeda(tipo, valor) {
         return new moeda_1.Moeda(tipo, valor);
     }

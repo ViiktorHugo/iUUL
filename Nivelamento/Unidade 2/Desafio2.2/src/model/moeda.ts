@@ -5,24 +5,24 @@
  * @params tipo, valor
  */
 class Moeda{
-    #tipo: string;
-    #valor ?: number;
+    private tipo : string;
+    private valor ?: number; //campo opcional
 
-    constructor(tipo: string, valor ?: number) {
-        this.#tipo = tipo;
-        this.#valor = valor;
+    constructor(tipo : string, valor ?: number) {
+        this.tipo = tipo;
+        this.valor = valor;
     }
 
-    get tipo() : string {
-        return this.#tipo;
+    get tipoMoeda() : string {
+        return this.tipo;
     }
 
-    get valor() : number | undefined {
-        return this.#valor;
+    get valorMoeda() : number | undefined {
+        return this.valor;
     }
 
-    set valor(novoValor: number){
-        this.#valor = novoValor;
+    set alteraValor(novoValor: number){
+        this.valor = novoValor;
     }
 }
 
