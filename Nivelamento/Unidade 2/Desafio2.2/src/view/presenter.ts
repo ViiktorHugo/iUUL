@@ -28,9 +28,9 @@ class Presenter {
         )
     }
 
-    showTaxa() {
+    showTaxa(taxa : number) {
         this.printData(
-            `Taxa: `
+            `Taxa: ${taxa}`
         )
     }
 

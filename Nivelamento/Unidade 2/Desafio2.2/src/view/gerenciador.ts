@@ -10,8 +10,7 @@ class Gerenciador {
     private output = new Presenter();
     private readUserLine = new Receiver();
 
-    run() {
-
+    async run() {
         while (true) {
             this.output.showOrigem();
             const origem = this.readUserLine.getStrInput('');
@@ -27,13 +26,22 @@ class Gerenciador {
             let moedaDestino = this.controllerMoeda.createMoeda(destino);
 
             // consumir a API
-            // TODO -> Implementar o from e to da api, calcular a moedaDestinoValor e o valor da taxa
-            
-            this.output.showValorDestino(moedaOrigem.tipoMoeda, moedaOrigem.valorMoeda, moedaDestino.tipoMoeda, moedaDestino.valorMoeda);
-            this.output.showTaxa();
-            const taxa = this.output.showTaxa;
-            this.output.pulaLinha();
-            this.output.pulaLinha();
+            const consomeAPI = `https://api.exchangerate.host/convert?from=${moedaOrigem.tipoMoeda}&to=${moedaDestino.tipoMoeda}&amount=${moedaOrigem.valorMoeda}`;
+            let taxa : number;
+
+            try {
+                const response = await fetch(consomeAPI);
+                const data = await response.json();
+                taxa = data.info.rate;
+                moedaDestino.alteraValor = data.result.toFixed(2);
+
+                this.output.showValorDestino(moedaOrigem.tipoMoeda, moedaOrigem.valorMoeda, moedaDestino.tipoMoeda, moedaDestino.valorMoeda);
+                this.output.showTaxa(taxa);
+                this.output.pulaLinha();
+                this.output.pulaLinha();
+            } catch (error) { // tratando erro de comunicacao com a API
+                console.error('Error getting data: ', error);
+            }
         }
     }
 }

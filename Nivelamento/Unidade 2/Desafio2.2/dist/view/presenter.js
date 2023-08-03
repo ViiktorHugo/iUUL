@@ -18,8 +18,8 @@ class Presenter {
     showValorDestino(moedaOrigem, valorOrigem, moedaDestino, valorDestino) {
         this.printData(`${moedaOrigem} ${valorOrigem} => ${moedaDestino} ${valorDestino}\n`);
     }
-    showTaxa() {
-        this.printData(`Taxa: `);
+    showTaxa(taxa) {
+        this.printData(`Taxa: ${taxa}`);
     }
     pulaLinha() {
         this.printData('\n');

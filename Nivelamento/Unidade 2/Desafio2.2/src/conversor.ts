@@ -5,4 +5,4 @@ import { Gerenciador } from "./view/gerenciador";
     const gerenciador = new Gerenciador;
 
     gerenciador.run();
-})();
+})(); 
