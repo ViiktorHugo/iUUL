@@ -26,7 +26,7 @@ class Gerenciador {
             let moedaOrigem = this.controllerMoeda.createMoeda(origem, valorOrigem);
             let moedaDestino = this.controllerMoeda.createMoeda(destino);
 
-            // consome a API
+            // consumir a API
             // TODO -> Implementar o from e to da api, calcular a moedaDestinoValor e o valor da taxa
             
             this.output.showValorDestino(moedaOrigem.tipoMoeda, moedaOrigem.valorMoeda, moedaDestino.tipoMoeda, moedaDestino.valorMoeda);
