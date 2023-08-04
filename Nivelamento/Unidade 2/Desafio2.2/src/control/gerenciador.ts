@@ -1,7 +1,7 @@
 
 import { sessionMoeda } from "../session/session";
-import { Presenter } from "./presenter";
-import { Receiver } from "./receiver";
+import { Presenter } from "../view/presenter";
+import { Receiver } from "../view/receiver";
 import { ValidaInputs } from "../validators/valida-input";
 
 class Gerenciador {

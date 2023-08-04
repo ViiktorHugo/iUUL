@@ -11,8 +11,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Gerenciador = void 0;
 const session_1 = require("../session/session");
-const presenter_1 = require("./presenter");
-const receiver_1 = require("./receiver");
+const presenter_1 = require("../view/presenter");
+const receiver_1 = require("../view/receiver");
 const valida_input_1 = require("../validators/valida-input");
 class Gerenciador {
     constructor() {

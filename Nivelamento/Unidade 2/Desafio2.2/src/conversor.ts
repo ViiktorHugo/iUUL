@@ -1,5 +1,5 @@
 
-import { Gerenciador } from "./view/gerenciador";
+import { Gerenciador } from "./control/gerenciador";
 
 (function() {
     const gerenciador = new Gerenciador;
