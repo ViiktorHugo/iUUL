@@ -13,9 +13,11 @@ exports.Gerenciador = void 0;
 const session_1 = require("../session/session");
 const presenter_1 = require("./presenter");
 const receiver_1 = require("./receiver");
+const valida_input_1 = require("../validators/valida-input");
 class Gerenciador {
     constructor() {
         this.controllerMoeda = session_1.sessionMoeda;
+        this.validador = new valida_input_1.ValidaInputs();
         this.output = new presenter_1.Presenter();
         this.readUserLine = new receiver_1.Receiver();
     }
@@ -24,17 +26,19 @@ class Gerenciador {
             while (true) {
                 this.output.showOrigem();
                 const origem = this.readUserLine.getStrInput('');
-                if (origem == "") {
-                    process.exit();
-                }
+                this.validador.verificaStringVazia(origem); // verifica se eh string vazia
+                this.validador.verificaCaracteres(origem); // verifica se possui 3 caracteres
                 this.output.showDestino();
                 const destino = this.readUserLine.getStrInput('');
+                this.validador.verificaCaracteres(destino); // verifica se possui 3 caracteres
+                this.validador.verificaEhIgual(origem, destino); // verifica se as moedas sao iguais
                 this.output.showValorOrigem();
-                const valorOrigem = this.readUserLine.getNumInput('');
+                const valorOrigem = this.readUserLine.getNumInput(''); // know ISSUE = Digitar com ',' ao invés de '.' gera saida indesejada.
+                this.validador.verificaMaiorQueZero(valorOrigem); // verifica se eh maior que zero
                 this.output.pulaLinha();
                 let moedaOrigem = this.controllerMoeda.createMoeda(origem, valorOrigem);
                 let moedaDestino = this.controllerMoeda.createMoeda(destino);
-                // consumir a API
+                // utilizando a API exchangerate
                 const consomeAPI = `https://api.exchangerate.host/convert?from=${moedaOrigem.tipoMoeda}&to=${moedaDestino.tipoMoeda}&amount=${moedaOrigem.valorMoeda}`;
                 let taxa;
                 try {
