@@ -3,6 +3,8 @@ const { ControllerPaciente } = require('../controllers/controllerPaciente');
 
 const entry = require('prompt-sync')({ sigint: true });
 
+//separar melhor isso.
+
 
 let pacientes = new ControllerPaciente();
 let consultas = new ControllerConsulta();
