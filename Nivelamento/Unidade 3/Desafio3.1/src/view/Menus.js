@@ -1,9 +1,9 @@
 const { ControllerConsulta } = require('../controllers/ControllerConsulta');
-const { ControllerPaciente } = require('../controllers/controllerPaciente');
+const { ControllerPaciente } = require('../controllers/controllerPaciente'); //corrigir imports apos alteracao
 
 const entry = require('prompt-sync')({ sigint: true });
 
-//separar melhor isso.
+//separar melhor isso
 
 
 let pacientes = new ControllerPaciente();
