@@ -1,7 +1,7 @@
 
 const entry = require('prompt-sync')({ sigint: true });
-const { Consulta } = require("../model/Consulta");
-const { formataData, formataHorario } = require('../utils/utils');
+const { Consulta } = require("../src/model/Consulta");
+const { formataData, formataHorario } = require('../src/utils/utils');
 
 /**
  * Classe que armazena consultas e controla a criacao de novos objetos

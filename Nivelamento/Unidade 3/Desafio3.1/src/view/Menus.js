@@ -1,5 +1,5 @@
-const { ControllerConsulta } = require('../controllers/ControllerConsulta');
-const { ControllerPaciente } = require('../controllers/controllerPaciente'); //corrigir imports apos alteracao
+const { ControllerConsulta } = require('../src/controllers/ControllerConsulta');
+const { ControllerPaciente } = require('../src/controllers/controllerPaciente');
 
 const entry = require('prompt-sync')({ sigint: true });
 

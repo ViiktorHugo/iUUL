@@ -1,8 +1,9 @@
 
 
 const entry = require('prompt-sync')({ sigint: true });
-const { Paciente } = require('../model/Paciente');
-const { formataData } = require('../utils/utils');
+const { Paciente } = require('../src/model/Paciente');
+const { formataData } = require('../src/utils/utils');
+
 
 /**
  * Classe que armazena os pacientes e controla a criacao de novos objetos
