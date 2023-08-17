@@ -4,6 +4,9 @@
  */
 class Output {
 
+    /**
+     * @description imprime as opcoes do menu principal.
+     */
     showMenuPrincipal() {
         this.#printData(`\n\n
         Menu principal:
@@ -12,6 +15,9 @@ class Output {
         3 - Fim `);
     }
 
+    /**
+     * @description imprime as opcoes do menu de pacientes.
+     */
     showMenuPacientes() {
         this.#printData(`\n\n
         Menu do Cadastro de Pacientes
@@ -22,6 +28,9 @@ class Output {
         5 - Voltar p/ menu principal `);
     }
 
+    /**
+     * @description imprime as opcoes do menu da agenda.
+     */
     showMenuAgenda() {
         this.#printData(`\n\n
         Agenda
@@ -31,12 +40,20 @@ class Output {
         4 - Voltar p/ menu principal `)
     }
 
+    /**
+     * @description imprime a string, funcao utilizada apenas pela classe output.
+     */
     showUserChoice() {
         this.#printData(`\n\nDigite uma opção: `)
     }
 
 
+    /**
+     * @description imprime as opcoes do menu principal.
+     */
     #printData(data) {
         process.stdout.write(data);
     }
 }
+
+module.exports = Output;

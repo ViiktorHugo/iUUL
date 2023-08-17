@@ -1,5 +1,5 @@
 
-const { DateTime } = require('luxon');
+
 
 class Paciente {
     #cpf;
@@ -8,8 +8,7 @@ class Paciente {
     #idade;
 
     /**
-     * Cria um novo paciente.
-     * 
+     * @description Cria um novo paciente.
      * @params CPF, nome e data de nascimento
      */
     constructor (cpf, nome, nascimento) {
@@ -19,19 +18,19 @@ class Paciente {
         this.#idade = this.#calculaIdade(nascimento);
     }
 
-    get cpfPaciente() {
+    get cpf() {
         return this.#cpf;
     }
 
-    get nomePaciente() {
+    get nome() {
         return this.#nome;
     }
 
-    get nascimentoPaciente() {
+    get nascimento() {
         return this.#nascimento;
     }
 
-    get idadePaciente() {
+    get idade() {
         return this.#idade;
     }
 
@@ -61,6 +60,5 @@ class Paciente {
     }
 }
 
-module.exports = {
-    Paciente: Paciente
-}
+
+module.exports = Paciente;

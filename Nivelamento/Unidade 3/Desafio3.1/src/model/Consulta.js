@@ -1,6 +1,6 @@
 
 class Consulta {
-    #cpf; // verificar se isso deve ser substituido por paciente. faz mais sentido???
+    #cpf; 
     #data;
     #inicio;
     #fim;
@@ -8,9 +8,7 @@ class Consulta {
 
     /**
      * Cria uma nova consulta.
-     * 
      * @params cpf, data da consulta, horario incial, horario final
-     * 
      */
     constructor (cpf, data, inicio, fim) {
         this.#cpf = cpf;
@@ -20,27 +18,25 @@ class Consulta {
         this.#duracao = this.#fim - this.#inicio;
     }
 
-    get cpfConsulta() {
+    get cpf() {
         return this.#cpf;
     }
 
-    get dataConsulta() {
+    get data() {
         return this.#data;
     }
 
-    get inicioConsulta() {
+    get inicio() {
         return this.#inicio;
     }
 
-    get fimConsulta() {
+    get fim() {
         return this.#fim;
     }
 
-    get duracaoConsulta() {
+    get duracao() {
         return this.#duracao;
     }
 }
 
-module.exports = {
-    Consulta: Consulta
-}
+module.exports = Consulta;
