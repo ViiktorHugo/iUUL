@@ -1,6 +1,8 @@
 
 
-
+/**
+ * @description classe paciente
+ */
 class Paciente {
     #cpf;
     #nome;

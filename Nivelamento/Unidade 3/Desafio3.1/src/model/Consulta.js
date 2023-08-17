@@ -1,4 +1,7 @@
 
+/**
+ * @description classe Consulta
+ */
 class Consulta {
     #cpf; 
     #data;
