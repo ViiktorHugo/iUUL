@@ -17,7 +17,7 @@ class Output {
      * @description imprime as opcoes do menu principal.
      */
     showMenuPrincipal() {
-        this.#printData('\n Menu principal: \n' +
+        this.#printData('\nMenu principal: \n' +
                         '1 - Cadastro de pacientes\n' +
                         '2 - Agenda\n' +
                         '3 - Fim\n');
@@ -27,7 +27,7 @@ class Output {
      * @description imprime as opcoes do menu de pacientes.
      */
     showMenuPacientes() {
-        this.#printData ('\n Menu do cadastro de pacientes\n' +
+        this.#printData ('\nMenu do cadastro de pacientes\n' +
                         '1 - Cadastrar novo paciente\n' +
                         '3 - Listar Pacientes (ordenado por CPF)\n' +
                         '4 - Listar Pacientes (ordenado por nome)\n' +
@@ -38,7 +38,7 @@ class Output {
      * @description imprime as opcoes do menu da agenda.
      */
     showMenuAgenda() {
-        this.#printData('\n Menu de Agenda\n' +
+        this.#printData('\nMenu de Agenda\n' +
                         '1 - Agendar consulta\n' +
                         '2 - Cancelar agendamento\n' +
                         '3 - Listar agenda\n' +
@@ -49,42 +49,50 @@ class Output {
      * @description solicita o cpf do paciente
      */
     showCpf() {
-        this.#printData(`Digite o CPF: `)
+        return(`Digite o CPF: `)
     }
 
     /**
      * @description solicita o nome a do paciente
      */
     showNome() {
-        this.#printData(`Digite o nome: `)
+        return(`Digite o nome: `)
     }
 
     /**
      * @description solicita a data de nascimento do paciente
      */
     showDataNascimento() {
-        this.#printData(`Digite a data de nascimento: `)
+        return(`Digite a data de nascimento: `)
     }
 
     /**
      * @description solicita a data da consulta
      */
     showDataConsulta() {
-        this.#printData(`Digite a data da consulta: `)
+        return(`Digite a data da consulta: `)
     }
 
     /**
      * @description solicita o horario incial da consulta
      */
     showHorarioInicial() {
-        this.#printData(`Digite a hora inicial: `)
+        return(`Digite a hora inicial: `)
     }
 
     /**
      * @description solicita o horario final da consulta
      */
     showHorarioFinal() {
-        this.#printData(`Digite a hora final: `)
+        return(`Digite a hora final: `)
+    }
+
+    showOpcaoUsuario() {
+        return(`\nDigite uma opção: `);
+    }
+
+    showListarConsultas() {
+        return(`Apresentar a agenda T-Toda ou P-Periodo: `);
     }
 
     /**
