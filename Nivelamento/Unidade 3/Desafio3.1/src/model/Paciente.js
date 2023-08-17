@@ -1,5 +1,7 @@
 
 
+const { DateTime } = require('luxon');
+
 /**
  * @description classe paciente
  */
@@ -54,13 +56,13 @@ class Paciente {
      * @returns idade do paciente
      */
     #calculaIdade(nascimento) {
-        let dataAtual = DateTime.now();
+        let dataNascimento = DateTime.fromFormat(nascimento, 'dd/MM/yyyy', { locale: 'pt-BR' });
+        let dataAtual = DateTime.now().setLocale('pt-BR');
 
-        let idade = dataAtual.diff(nascimento, 'years').years;
+        let idade = dataAtual.diff(dataNascimento, 'years').years;
 
-        return (idade);
+        return (Math.floor(idade));
     }
 }
-
 
 module.exports = Paciente;
