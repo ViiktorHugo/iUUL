@@ -11,9 +11,8 @@ class Utils {
     */
     formataData(data){
         let dataFormatada = DateTime.fromFormat(data, 'dd/MM/yyyy', { locale: 'pt-BR' })
-        let dataFinal = dataFormatada.toLocaleString(DateTime.DATE_SHORT)
 
-        return (dataFinal);
+        return (dataFormatada.toLocaleString(DateTime.DATE_SHORT));
     }
 
     /**
@@ -25,11 +24,9 @@ class Utils {
         let hora = horario.substring(0, 2);
         let minuto = horario.substring(2,4);
 
-        let horario2 = DateTime.fromFormat(`${hora}:${minuto}`, 'HH:mm', { locale: 'pt-BR' });
+        let horarioFormatado = DateTime.fromFormat(`${hora}:${minuto}`, 'HH:mm', { locale: 'pt-BR' });
 
-        let horarioFinal = horario2.toFormat(DateTime.TIME_24_SIMPLE);
-
-        return (horarioFinal);
+        return (horarioFormatado.toLocaleString(DateTime.TIME_24_SIMPLE));
     }
 }
 

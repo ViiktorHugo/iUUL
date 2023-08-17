@@ -41,7 +41,49 @@ class Output {
     }
 
     /**
-     * @description imprime a string, funcao utilizada apenas pela classe output.
+     * @description solicita o cpf do paciente
+     */
+    showCpf() {
+        this.#printData(`Digite o CPF: `)
+    }
+
+    /**
+     * @description solicita o nome a do paciente
+     */
+    showNome() {
+        this.#printData(`Digite o nome: `)
+    }
+
+    /**
+     * @description solicita a data de nascimento do paciente
+     */
+    showDataNascimento() {
+        this.#printData(`Digite a data de nascimento: `)
+    }
+
+    /**
+     * @description solicita a data da consulta
+     */
+    showDataConsulta() {
+        this.#printData(`Digite a data da consulta: `)
+    }
+
+    /**
+     * @description solicita o horario incial da consulta
+     */
+    showHorarioInicial() {
+        this.#printData(`Digite a hora inicial: `)
+    }
+
+    /**
+     * @description solicita o horario final da consulta
+     */
+    showHorarioFinal() {
+        this.#printData(`Digite a hora final: `)
+    }
+
+    /**
+     * @description solicita a entrada do usuario
      */
     showUserChoice() {
         this.#printData(`\n\nDigite uma opção: `)
@@ -49,7 +91,7 @@ class Output {
 
 
     /**
-     * @description imprime as opcoes do menu principal.
+     * @description imprime a string, funcao utilizada apenas pela classe output.
      */
     #printData(data) {
         process.stdout.write(data);
