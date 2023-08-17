@@ -43,7 +43,6 @@ class Paciente {
      * 
      * @params CPF de outro paciente a ser comparado
      * @returns true -> caso exista igual, false -> nao exista
-     * TODO: Verificar se o paciente eh responsavel por realizar essa verificacao
      */
     verificaCPF (otherCPF) {
         return this.#cpf === otherCPF;

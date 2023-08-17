@@ -5,39 +5,44 @@
 class Output {
 
     /**
+     * @description imprime as boas vindas do programa
+     */
+    showWelcome() {
+        this.#printData(
+            '\n\n==================== Bem vindo ao Consultório Odontológico! ===================='
+        );
+    }
+
+    /**
      * @description imprime as opcoes do menu principal.
      */
     showMenuPrincipal() {
-        this.#printData(`\n\n
-        Menu principal:
-        1 - Cadastro de pacientes
-        2 - Agenda
-        3 - Fim `);
+        this.#printData('\n Menu principal: \n' +
+                        '1 - Cadastro de pacientes\n' +
+                        '2 - Agenda\n' +
+                        '3 - Fim\n');
     }
 
     /**
      * @description imprime as opcoes do menu de pacientes.
      */
     showMenuPacientes() {
-        this.#printData(`\n\n
-        Menu do Cadastro de Pacientes
-        1 - Cadastrar novo paciente
-        2 - Excluir paciente
-        3 - Listar Pacientes (ordenado por CPF)
-        4 - Listar Pacientes (ordenado por nome)
-        5 - Voltar p/ menu principal `);
+        this.#printData ('\n Menu do cadastro de pacientes\n' +
+                        '1 - Cadastrar novo paciente\n' +
+                        '3 - Listar Pacientes (ordenado por CPF)\n' +
+                        '4 - Listar Pacientes (ordenado por nome)\n' +
+                        '5 - Voltar p/ menu principal \n')
     }
 
     /**
      * @description imprime as opcoes do menu da agenda.
      */
     showMenuAgenda() {
-        this.#printData(`\n\n
-        Agenda
-        1 - Agendar consulta
-        2 - Cancelar agendamento
-        3 - Listar agenda
-        4 - Voltar p/ menu principal `)
+        this.#printData('\n Menu de Agenda\n' +
+                        '1 - Agendar consulta\n' +
+                        '2 - Cancelar agendamento\n' +
+                        '3 - Listar agenda\n' +
+                        '4 - Voltar p/ menu principal\n');
     }
 
     /**
@@ -81,14 +86,6 @@ class Output {
     showHorarioFinal() {
         this.#printData(`Digite a hora final: `)
     }
-
-    /**
-     * @description solicita a entrada do usuario
-     */
-    showUserChoice() {
-        this.#printData(`\n\nDigite uma opção: `)
-    }
-
 
     /**
      * @description imprime a string, funcao utilizada apenas pela classe output.
