@@ -2,7 +2,7 @@
 At the directory ./desafio3.1, run:  
 
 ```bash
-node .\src/consultorio.js
+node .\src\consultorio.js
 ```
 
 ## Aditional info:
