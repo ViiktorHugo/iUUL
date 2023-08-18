@@ -5,20 +5,25 @@ const Paciente = require('../model/Paciente');
  * Classe que cria novos pacientes e insere no banco de dados
  */
 class ControllerPaciente {
-
-    constructor(){}
     
-    cadastraPaciente() {
+    async cadastraPaciente (cpf, nome, nascimento) {
+        const paciente = await Paciente.create({cpf,nome,nascimento});
+        return paciente;
     }
 
-    removePaciente() {
+    async removePaciente (cpf) {
+        const rmvPaciente = await Paciente.destroy({where: {cpf}});
+        return rmvPaciente;
     }
 
-    listaPacientesCPF() {
+    async listaPacientesCPF () {
+        const pacientes = await Paciente.findAll({where: {cpf}});
+        return pacientes;
     }
 
-    listaPacientesNome () {
-
+    async listaPacientesNome () {
+        const pacientes = await Paciente.findAll({where: {nome}});
+        return pacientes;
     }
 }
 
