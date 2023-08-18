@@ -29,6 +29,7 @@ class Output {
     showMenuPacientes() {
         this.#printData ('\nMenu do cadastro de pacientes\n' +
                         '1 - Cadastrar novo paciente\n' +
+                        '2 - Excluir paciente\n' +
                         '3 - Listar Pacientes (ordenado por CPF)\n' +
                         '4 - Listar Pacientes (ordenado por nome)\n' +
                         '5 - Voltar p/ menu principal \n')

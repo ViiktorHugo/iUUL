@@ -1,14 +1,18 @@
 
 
 const sequelize = require('./database/db');
-const Paciente = require('./model/Paciente');
-const Consulta = require('./model/Consulta');
+const Menu = require('./view/menu');
 
 (async () => {
-    Paciente.init(sequelize);
-    Consulta.init(sequelize);
 
-    await sequelize.sync();
+    try {
+        await sequelize.sync();
 
-    await sequelize.close();
+        const menu = new Menu();
+        menu.run();
+
+        await sequelize.close();
+    } catch (error) {
+        console.error('Error: ', error);
+    }
 })();

@@ -1,11 +1,15 @@
 
 const Output = require('./output');
 const Input = require('./input');
+const ControllerPaciente = require('../controllers/ControllerPaciente');
+const ControllerConsulta = require('../controllers/ControllerConsulta');
 
 class Menu {
 
     #Output = new Output();
     #Input = new Input();
+    #ControllerPaciente = new ControllerPaciente();
+    #ControllerConsulta = new ControllerConsulta();
 
     run() {
         this.#Output.showWelcome();
@@ -98,56 +102,61 @@ class Menu {
         }
     }
 
-    #cadastraPaciente() {
+    async #cadastraPaciente() {
         let cpf = this.#Input.getStrInput(this.#Output.showCpf());
 
         let nome = this.#Input.getStrInput(this.#Output.showNome());
 
         let nascimento = this.#Input.getStrInput(this.#Output.showDataNascimento());
 
-        //realiza o cadastro do paciente
+        await this.#ControllerPaciente.cadastraPaciente(cpf, nome, nascimento);
+
+
         //fazer verificacoes
         //retorna se o Paciente foi cadastrado com sucesso, caso nao tenha nenhum erro.
     }
 
-    #excluiPaciente() {
+    async #excluiPaciente() {
         let cpf = this.#Input.getStrInput(this.#Output.showCpf());
 
-        //excluir paciente no db
+        await this.#ControllerPaciente.removePaciente(cpf);
+
         //fazer verificacoes
         //retornar se o pacinte foi devidamente excluido
     }
 
-    #listarPacientesByCpf() {
-        //comunicacao com o dp atraves dos controllers
+    async #listarPacientesByCpf() {
+        await this.#ControllerPaciente.listaPacientesCPF();
     }
 
-    #listarPacientesByNome() {
-        //comunicacao com o dp atraves dos controllers
+    async #listarPacientesByNome() {
+        await this.#ControllerPaciente.listaPacientesNome();
     }
 
-    #agendaConsulta() {
+    async #agendaConsulta() {
         let cpf = this.#Input.getStrInput(this.#Output.showCpf());
         let data = this.#Input.getStrInput(this.#Output.showDataConsulta());
         let horaInicial = this.#Input.getStrInput(this.#Output.showHorarioInicial());
         let horaFinal = this.#Input.getStrInput(this.#Output.showHorarioFinal());
 
-        //realiza o cadastro de uma nova consulta
+        await this.#ControllerConsulta.agendaConsulta(cpf, data, horaInicial, horaFinal);
+
         //fazer verificacoes
         //retorna se a consulta foi cadastrado com sucesso, caso nao tenha nenhum erro.
     }
 
-    #cancelaConsulta() {
+    async #cancelaConsulta() {
         let cpf = this.#Input.getStrInput(this.#Output.showCpf());
         let data = this.#Input.getStrInput(this.#Output.showDataConsulta());
         let horaInicial = this.#Input.getStrInput(this.#Output.showHorarioInicial());
 
-        //realiza o cadastro do paciente
+        await this.#ControllerConsulta.cancelaConsulta(cpf, data, horaInicial);
+
         //fazer verificacoes
         //retorna se a consulta foi cancelada com sucesso, caso nao tenha nenhum erro.
     }
 
-    #listarConsultas() {
+    async #listarConsultas() {
 
         while(true) {
             try {
@@ -155,11 +164,12 @@ class Menu {
 
                 switch (escolha) {
                     case 'T':
-                        console.log('Imprime lista toda - IMPLEMENTAR!');
+                        await this.#ControllerConsulta.listarTodasConsultas();
                         break;
                     case 'P':
                         let dataInicial = this.#Input.getStrInput(`${this.#Output.showDataConsulta()}`)
                         let dataFinal = this.#Input.getStrInput(`${this.#Output.showDataConsulta()}`)
+                        await this.#ControllerConsulta.listarConsultasPorPeriodo(dataInicial, dataFinal);
                         break;
                     default:
                         throw new Error('Opção inválida!');
@@ -174,9 +184,5 @@ class Menu {
         return this.#Output.showOpcaoUsuario();
     }
 }
-
-let m1 = new Menu();
-
-m1.run();
 
 module.exports = Menu;
