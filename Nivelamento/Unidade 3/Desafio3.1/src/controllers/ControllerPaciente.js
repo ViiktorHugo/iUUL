@@ -1,4 +1,5 @@
 
+const Paciente = require('../model/Paciente');
 
 /**
  * Classe que cria novos pacientes e insere no banco de dados
@@ -13,10 +14,12 @@ class ControllerPaciente {
     removePaciente() {
     }
 
-    listaPacientesCPF() { 
+    listaPacientesCPF() {
     }
 
-    listaPacientesNome () { //TODO: not implemented yet!
+    listaPacientesNome () {
 
     }
 }
+
+module.exports = ControllerPaciente;

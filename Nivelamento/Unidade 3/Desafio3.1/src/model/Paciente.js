@@ -1,66 +1,46 @@
 
 
 const { DateTime } = require('luxon');
+const { Model, Sequelize } = require('sequelize');
 
 /**
  * @description classe paciente
  */
-class Paciente {
-    #cpf;
-    #nome;
-    #nascimento;
-    #idade;
+class Paciente extends Model{
 
     /**
      * @description Cria um novo paciente.
      * @params CPF, nome e data de nascimento
      */
-    constructor (cpf, nome, nascimento) {
-        this.#cpf = cpf;
-        this.#nome = nome;
-        this.#nascimento = nascimento;
-        this.#idade = this.#calculaIdade(nascimento);
-    }
+    static init(sequelize) {
+        super.init({
+            cpf:{
+                type: Sequelize.STRING,
+                allowNull: false,
+            },
+            nome: {
+                type: Sequelize.STRING,
+                allowNull: false,
+            },
+            nascimento: {
+                type: Sequelize.STRING,
+                allowNull: false,
+            },
+            idade: {
+                type: Sequelize.INTEGER,
+            }
+        }, {
+            sequelize, 
+            modelName: 'Paciente', 
+            tableName: 'Pacientes',});
 
-    get cpf() {
-        return this.#cpf;
-    }
-
-    get nome() {
-        return this.#nome;
-    }
-
-    get nascimento() {
-        return this.#nascimento;
-    }
-
-    get idade() {
-        return this.#idade;
-    }
-
-    /**
-     * Verifica se o CPF ja eh existente.
-     * 
-     * @params CPF de outro paciente a ser comparado
-     * @returns true -> caso exista igual, false -> nao exista
-     */
-    verificaCPF (otherCPF) {
-        return this.#cpf === otherCPF;
-    }
-
-    /**
-     * Metodo privado para calcular a idade no constructor
-     * 
-     * @params data de nascimento
-     * @returns idade do paciente
-     */
-    #calculaIdade(nascimento) {
-        let dataNascimento = DateTime.fromFormat(nascimento, 'dd/MM/yyyy', { locale: 'pt-BR' });
-        let dataAtual = DateTime.now().setLocale('pt-BR');
-
-        let idade = dataAtual.diff(dataNascimento, 'years').years;
-
-        return (Math.floor(idade));
+        this.addHook('beforeCreate', 'calculaIdade', async (instance, options) => {
+            const dataNascimento = DateTime.fromFormat(instance.nascimento, 'dd/MM/yyyy', { locale: 'pt-BR' });
+            const dataAtual = DateTime.now().setLocale('pt-BR');
+    
+            const idade = dataAtual.diff(dataNascimento, 'years').years;
+            instance.idade = Math.floor(idade);
+        });
     }
 }
 

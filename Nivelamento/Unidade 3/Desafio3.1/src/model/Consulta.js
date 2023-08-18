@@ -1,44 +1,39 @@
+const { Model, DataTypes, Sequelize } = require("sequelize");
 
 /**
  * @description classe Consulta
  */
-class Consulta {
-    #cpf; 
-    #data;
-    #inicio;
-    #fim;
-    #duracao;
+class Consulta extends Model{
 
     /**
      * Cria uma nova consulta.
      * @params cpf, data da consulta, horario incial, horario final
      */
-    constructor (cpf, data, inicio, fim) {
-        this.#cpf = cpf;
-        this.#data = data;
-        this.#inicio = inicio;
-        this.#fim = fim;
-        this.#duracao = this.#fim - this.#inicio;
-    }
-
-    get cpf() {
-        return this.#cpf;
-    }
-
-    get data() {
-        return this.#data;
-    }
-
-    get inicio() {
-        return this.#inicio;
-    }
-
-    get fim() {
-        return this.#fim;
-    }
-
-    get duracao() {
-        return this.#duracao;
+    static init(sequelize) {
+        super.init({
+            cpf: {
+                type: Sequelize.STRING,
+                allowNull: false,
+            },
+            data: {
+                type: Sequelize.STRING,
+                allowNull: false,
+            },
+            inicio: {
+                type: Sequelize.STRING,
+                allowNull: false,
+            },
+            fim: {
+                type: Sequelize.STRING,
+                allowNull: false,
+            },
+            duracao:{
+                type: Sequelize.INTEGER,
+            }
+        }, {
+            sequelize,
+            modelName: 'Consulta',
+            tableName: 'Consultas'});
     }
 }
 
