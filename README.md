@@ -14,3 +14,8 @@ Unidade 2:
 Desafio 2.1 = Not done!
 Desafio 2.2 = Done!
 ```
+```bash
+Unidade 3:
+
+Desafio 3 = Done!
+```
