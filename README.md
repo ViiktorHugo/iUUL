@@ -5,8 +5,8 @@ Code made at iUUL course.
 ```bash
 Unidade 1:
 
-Desafio 1.1 = Done, not completed!
-Desafio 1.2 = Done, not completed!
+Desafio 1.1 = Done!
+Desafio 1.2 = Done!
 ```
 ```bash
 Unidade 2:
